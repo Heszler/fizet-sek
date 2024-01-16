@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\HTTP\Controllers\Szabadsagok;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::get('szabadsagok', [Szabadsagok::class, 'index']);
+Route::get('ujadat', [Szabadsagok::class, 'create']);    
+
+Route::post('/ujadat', [Szabadsagok::class, 'store'])->name('ujadatfelvitel');
